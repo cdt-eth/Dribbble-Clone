@@ -14,7 +14,6 @@ class CommentsController < ApplicationController
     @shot = Shot.find(params[:shot_id])
     @comment = @shot.comments.find(params[:id])
     @comment.destroy
-
     redirect_to shot_path(@shot)
   end
 

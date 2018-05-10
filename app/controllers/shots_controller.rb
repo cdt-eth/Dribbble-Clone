@@ -67,7 +67,7 @@ class ShotsController < ApplicationController
     @shot.liked_by current_user
     respond_to do |format|
       format.html { redirect_back fallback_location: root_path }
-      format.js { render layout: false }
+      format.json { render layout: false }
     end
   end
 
@@ -75,7 +75,7 @@ class ShotsController < ApplicationController
     @shot.unliked_by current_user
     respond_to do |format|
       format.html { redirect_back fallback_location: root_path }
-      format.js { render layout: false }
+      format.json { render layout: false }
     end
   end
 
@@ -88,6 +88,6 @@ class ShotsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def shot_params
-    params.require(:shot).permit(:title, :description, :user_id)
+    params.require(:shot).permit(:title, :description, :user_shot)
   end
 end
